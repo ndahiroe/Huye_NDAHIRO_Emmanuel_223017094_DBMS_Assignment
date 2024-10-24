@@ -1,0 +1,178 @@
+
+Setting environment for using XAMPP for Windows.
+user@XDR c:\Users\user\Downloads\xampp
+# mysql.exe -u root
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 9
+Server version: 10.4.32-MariaDB mariadb.org binary distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> create database ruhande;
+Query OK, 1 row affected (0.003 sec)
+
+MariaDB [(none)]> use ruhande;
+Database changed
+MariaDB [ruhande]> create table ngoma(id int primary key auto_increment,first_name varchar(230),last_name varchar(230),Gender varchar(8),province varchar(30),district varchar(30),sector varchar(30),cell varchar(30),tel varchar(10),email varchar(30));
+Query OK, 0 rows affected (0.033 sec)
+
+MariaDB [ruhande]> insert into ngoma values('','mugisha','keneth','male','east','gatsibo','kabarore','kabs','0786464674','mugisha@gmail.com'),('','mutoni','diane','female','east','nyagatare','nyagatare','ryabega','0796404674','mutoni@gmail.com'),('','sangwa','hormene','male','east','gatsibo','ngarama','taba','0795664674','sangwa@gmail.com'),('','murerwa','grace','female','east','nyagatare','nyagatare','rutaraka','0790764674','murerwagrace@gmail.com'),('','Niyonshuti','Affable','male','kigali','gasabo','gasabo','remera','079646
+4674','niyori@gmail.com'),('','mugabo','eric','male','kigali','kicukiro','masaka','cyimo','0786090951','ericmugabo@gmail.com'),('','umuringa','allen','female','kigali','kicukiro','kanombe','busanza','0790896400','umuringallen@gmail.com'),('','ngabo','fred','male','e
+ast','nyagatare','nyagatare','ryabega','0790775456','fredngabo@gmail.com'),('','nshuti','Manasseh','male','South','Huye','ngoma','mukoni','0790640008','manasseh@gmail.com'),('','shema','gabin','male','south','huye','ngoma','taba','0790989808','gabin@gmail.com');
+Query OK, 10 rows affected, 10 warnings (0.026 sec)
+Records: 10  Duplicates: 0  Warnings: 10
+
+MariaDB [ruhande]> select*from ngoma;
++----+------------+-----------+--------+----------+-----------+-----------+----------+------------+------------------------+
+| id | first_name | last_name | Gender | province | district  | sector    | cell     | tel        | email                  |
++----+------------+-----------+--------+----------+-----------+-----------+----------+------------+------------------------+
+|  1 | mugisha    | keneth    | male   | east     | gatsibo   | kabarore  | kabs     | 0786464674 | mugisha@gmail.com      |
+|  2 | mutoni     | diane     | female | east     | nyagatare | nyagatare | ryabega  | 0796404674 | mutoni@gmail.com       |
+|  3 | sangwa     | hormene   | male   | east     | gatsibo   | ngarama   | taba     | 0795664674 | sangwa@gmail.com       |
+|  4 | murerwa    | grace     | female | east     | nyagatare | nyagatare | rutaraka | 0790764674 | murerwagrace@gmail.com |
+|  5 | Niyonshuti | Affable   | male   | kigali   | gasabo    | gasabo    | remera   | 0796464674 | niyori@gmail.com       |
+|  6 | mugabo     | eric      | male   | kigali   | kicukiro  | masaka    | cyimo    | 0786090951 | ericmugabo@gmail.com   |
+|  7 | umuringa   | allen     | female | kigali   | kicukiro  | kanombe   | busanza  | 0790896400 | umuringallen@gmail.com |
+|  8 | ngabo      | fred      | male   | east     | nyagatare | nyagatare | ryabega  | 0790775456 | fredngabo@gmail.com    |
+|  9 | nshuti     | Manasseh  | male   | South    | Huye      | ngoma     | mukoni   | 0790640008 | manasseh@gmail.com     |
+| 10 | shema      | gabin     | male   | south    | huye      | ngoma     | taba     | 0790989808 | gabin@gmail.com        |
++----+------------+-----------+--------+----------+-----------+-----------+----------+------------+------------------------+
+10 rows in set (0.001 sec)
+
+MariaDB [ruhande]> update table ngoma set last_name='dianah' where last_name='diane';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'table ngoma set last_name='dianah' where last_name='diane'' at line 1
+MariaDB [ruhande]> update ngoma set last_name='dianah' where last_name='diane';
+Query OK, 1 row affected (0.019 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [ruhande]> alter table ngoma drop tel;
+Query OK, 0 rows affected (0.029 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [ruhande]> select*from ngoma;
++----+------------+-----------+--------+----------+-----------+-----------+----------+------------------------+
+| id | first_name | last_name | Gender | province | district  | sector    | cell     | email                  |
++----+------------+-----------+--------+----------+-----------+-----------+----------+------------------------+
+|  1 | mugisha    | keneth    | male   | east     | gatsibo   | kabarore  | kabs     | mugisha@gmail.com      |
+|  2 | mutoni     | dianah    | female | east     | nyagatare | nyagatare | ryabega  | mutoni@gmail.com       |
+|  3 | sangwa     | hormene   | male   | east     | gatsibo   | ngarama   | taba     | sangwa@gmail.com       |
+|  4 | murerwa    | grace     | female | east     | nyagatare | nyagatare | rutaraka | murerwagrace@gmail.com |
+|  5 | Niyonshuti | Affable   | male   | kigali   | gasabo    | gasabo    | remera   | niyori@gmail.com       |
+|  6 | mugabo     | eric      | male   | kigali   | kicukiro  | masaka    | cyimo    | ericmugabo@gmail.com   |
+|  7 | umuringa   | allen     | female | kigali   | kicukiro  | kanombe   | busanza  | umuringallen@gmail.com |
+|  8 | ngabo      | fred      | male   | east     | nyagatare | nyagatare | ryabega  | fredngabo@gmail.com    |
+|  9 | nshuti     | Manasseh  | male   | South    | Huye      | ngoma     | mukoni   | manasseh@gmail.com     |
+| 10 | shema      | gabin     | male   | south    | huye      | ngoma     | taba     | gabin@gmail.com        |
++----+------------+-----------+--------+----------+-----------+-----------+----------+------------------------+
+10 rows in set (0.001 sec)
+
+MariaDB [ruhande]> select id,first_name,last_name from ngoma;
++----+------------+-----------+
+| id | first_name | last_name |
++----+------------+-----------+
+|  1 | mugisha    | keneth    |
+|  2 | mutoni     | dianah    |
+|  3 | sangwa     | hormene   |
+|  4 | murerwa    | grace     |
+|  5 | Niyonshuti | Affable   |
+|  6 | mugabo     | eric      |
+|  7 | umuringa   | allen     |
+|  8 | ngabo      | fred      |
+|  9 | nshuti     | Manasseh  |
+| 10 | shema      | gabin     |
++----+------------+-----------+
+10 rows in set (0.001 sec)
+
+MariaDB [ruhande]> select id,first_name,last_name from ngoma where district='nyagatare' or district='gatsibo';
++----+------------+-----------+
+| id | first_name | last_name |
++----+------------+-----------+
+|  1 | mugisha    | keneth    |
+|  2 | mutoni     | dianah    |
+|  3 | sangwa     | hormene   |
+|  4 | murerwa    | grace     |
+|  8 | ngabo      | fred      |
++----+------------+-----------+
+5 rows in set (0.001 sec)
+
+MariaDB [ruhande]> select id,first_name,last_name,district,sector,cell from ngoma where district='nyagatare' and cell='ryabega' and sector='nyagatare';
++----+------------+-----------+-----------+-----------+---------+
+| id | first_name | last_name | district  | sector    | cell    |
++----+------------+-----------+-----------+-----------+---------+
+|  2 | mutoni     | dianah    | nyagatare | nyagatare | ryabega |
+|  8 | ngabo      | fred      | nyagatare | nyagatare | ryabega |
++----+------------+-----------+-----------+-----------+---------+
+2 rows in set (0.015 sec)
+
+MariaDB [ruhande]> alter table ngoma add column Tel varchar(30);
+Query OK, 0 rows affected (0.030 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [ruhande]> select count(*) from ngoma;
++----------+
+| count(*) |
++----------+
+|       10 |
++----------+
+1 row in set (0.001 sec)
+
+MariaDB [ruhande]> select*from ngoma;
++----+------------+-----------+--------+----------+-----------+-----------+----------+------------------------+------+
+| id | first_name | last_name | Gender | province | district  | sector    | cell     | email                  | Tel  |
++----+------------+-----------+--------+----------+-----------+-----------+----------+------------------------+------+
+|  1 | mugisha    | keneth    | male   | east     | gatsibo   | kabarore  | kabs     | mugisha@gmail.com      | NULL |
+|  2 | mutoni     | dianah    | female | east     | nyagatare | nyagatare | ryabega  | mutoni@gmail.com       | NULL |
+|  3 | sangwa     | hormene   | male   | east     | gatsibo   | ngarama   | taba     | sangwa@gmail.com       | NULL |
+|  4 | murerwa    | grace     | female | east     | nyagatare | nyagatare | rutaraka | murerwagrace@gmail.com | NULL |
+|  5 | Niyonshuti | Affable   | male   | kigali   | gasabo    | gasabo    | remera   | niyori@gmail.com       | NULL |
+|  6 | mugabo     | eric      | male   | kigali   | kicukiro  | masaka    | cyimo    | ericmugabo@gmail.com   | NULL |
+|  7 | umuringa   | allen     | female | kigali   | kicukiro  | kanombe   | busanza  | umuringallen@gmail.com | NULL |
+|  8 | ngabo      | fred      | male   | east     | nyagatare | nyagatare | ryabega  | fredngabo@gmail.com    | NULL |
+|  9 | nshuti     | Manasseh  | male   | South    | Huye      | ngoma     | mukoni   | manasseh@gmail.com     | NULL |
+| 10 | shema      | gabin     | male   | south    | huye      | ngoma     | taba     | gabin@gmail.com        | NULL |
++----+------------+-----------+--------+----------+-----------+-----------+----------+------------------------+------+
+10 rows in set (0.001 sec)
+
+MariaDB [ruhande]> alter table ngoma drop tel;
+Query OK, 0 rows affected (0.024 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [ruhande]> select*from ngoma;
++----+------------+-----------+--------+----------+-----------+-----------+----------+------------------------+
+| id | first_name | last_name | Gender | province | district  | sector    | cell     | email                  |
++----+------------+-----------+--------+----------+-----------+-----------+----------+------------------------+
+|  1 | mugisha    | keneth    | male   | east     | gatsibo   | kabarore  | kabs     | mugisha@gmail.com      |
+|  2 | mutoni     | dianah    | female | east     | nyagatare | nyagatare | ryabega  | mutoni@gmail.com       |
+|  3 | sangwa     | hormene   | male   | east     | gatsibo   | ngarama   | taba     | sangwa@gmail.com       |
+|  4 | murerwa    | grace     | female | east     | nyagatare | nyagatare | rutaraka | murerwagrace@gmail.com |
+|  5 | Niyonshuti | Affable   | male   | kigali   | gasabo    | gasabo    | remera   | niyori@gmail.com       |
+|  6 | mugabo     | eric      | male   | kigali   | kicukiro  | masaka    | cyimo    | ericmugabo@gmail.com   |
+|  7 | umuringa   | allen     | female | kigali   | kicukiro  | kanombe   | busanza  | umuringallen@gmail.com |
+|  8 | ngabo      | fred      | male   | east     | nyagatare | nyagatare | ryabega  | fredngabo@gmail.com    |
+|  9 | nshuti     | Manasseh  | male   | South    | Huye      | ngoma     | mukoni   | manasseh@gmail.com     |
+| 10 | shema      | gabin     | male   | south    | huye      | ngoma     | taba     | gabin@gmail.com        |
++----+------------+-----------+--------+----------+-----------+-----------+----------+------------------------+
+10 rows in set (0.001 sec)
+
+MariaDB [ruhande]> alter table ngoma add column Tel varchar(30);
+Query OK, 0 rows affected (0.031 sec)
+Records: 0  Duplicates: 0  Warnings: 0                                                                                                                                                                                                                                    MariaDB [ruhande]> select*from ngoma;
++----+------------+-----------+--------+----------+-----------+-----------+----------+------------------------+------+
+| id | first_name | last_name | Gender | province | district  | sector    | cell     | email                  | Tel  |
++----+------------+-----------+--------+----------+-----------+-----------+----------+------------------------+------+
+|  1 | mugisha    | keneth    | male   | east     | gatsibo   | kabarore  | kabs     | mugisha@gmail.com      | NULL |
+|  2 | mutoni     | dianah    | female | east     | nyagatare | nyagatare | ryabega  | mutoni@gmail.com       | NULL |
+|  3 | sangwa     | hormene   | male   | east     | gatsibo   | ngarama   | taba     | sangwa@gmail.com       | NULL |
+|  4 | murerwa    | grace     | female | east     | nyagatare | nyagatare | rutaraka | murerwagrace@gmail.com | NULL |
+|  5 | Niyonshuti | Affable   | male   | kigali   | gasabo    | gasabo    | remera   | niyori@gmail.com       | NULL |
+|  6 | mugabo     | eric      | male   | kigali   | kicukiro  | masaka    | cyimo    | ericmugabo@gmail.com   | NULL |
+|  7 | umuringa   | allen     | female | kigali   | kicukiro  | kanombe   | busanza  | umuringallen@gmail.com | NULL |
+|  8 | ngabo      | fred      | male   | east     | nyagatare | nyagatare | ryabega  | fredngabo@gmail.com    | NULL |
+|  9 | nshuti     | Manasseh  | male   | South    | Huye      | ngoma     | mukoni   | manasseh@gmail.com     | NULL |
+| 10 | shema      | gabin     | male   | south    | huye      | ngoma     | taba     | gabin@gmail.com        | NULL |
++----+------------+-----------+--------+----------+-----------+-----------+----------+------------------------+------+
+10 rows in set (0.001 sec)
+
+MariaDB [ruhande]>
